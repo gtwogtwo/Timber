@@ -21,8 +21,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.naman14.timber.helpers.MusicPlaybackTrack;
 import com.naman14.timber.utils.TimberUtils;
+import com.naman14.timber.helpers.MusicPlaybackTrack;
 
 import java.util.ArrayList;
 import java.util.Iterator;

@@ -22,8 +22,8 @@ import android.view.ViewGroup;
 
 import com.naman14.timber.MusicPlayer;
 import com.naman14.timber.MusicService;
-import com.naman14.timber.R;
 import com.naman14.timber.utils.TimberUtils;
+import com.naman14.timber.R;
 
 import net.steamcrafted.materialiconlib.MaterialDrawableBuilder;
 

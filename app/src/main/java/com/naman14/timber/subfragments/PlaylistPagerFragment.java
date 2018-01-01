@@ -27,15 +27,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.naman14.timber.dataloaders.TopTracksLoader;
+import com.naman14.timber.utils.Constants;
 import com.naman14.timber.R;
 import com.naman14.timber.dataloaders.LastAddedLoader;
 import com.naman14.timber.dataloaders.PlaylistLoader;
 import com.naman14.timber.dataloaders.PlaylistSongLoader;
 import com.naman14.timber.dataloaders.SongLoader;
-import com.naman14.timber.dataloaders.TopTracksLoader;
 import com.naman14.timber.models.Playlist;
 import com.naman14.timber.models.Song;
-import com.naman14.timber.utils.Constants;
 import com.naman14.timber.utils.NavigationUtils;
 import com.naman14.timber.utils.PreferencesUtility;
 import com.naman14.timber.utils.TimberUtils;
@@ -80,11 +80,11 @@ public class PlaylistPagerFragment extends Fragment {
         pageNumber = getArguments().getInt(ARG_PAGE_NUMBER);
         playlist = playlists.get(pageNumber);
 
-        playlistame = (TextView) rootView.findViewById(R.id.name);
-        playlistnumber = (TextView) rootView.findViewById(R.id.number);
-        songcount = (TextView) rootView.findViewById(R.id.songcount);
-        playlisttype = (TextView) rootView.findViewById(R.id.playlisttype);
-        playlistImage = (ImageView) rootView.findViewById(R.id.playlist_image);
+        playlistame = rootView.findViewById(R.id.name);
+        playlistnumber = rootView.findViewById(R.id.number);
+        songcount = rootView.findViewById(R.id.songcount);
+        playlisttype = rootView.findViewById(R.id.playlisttype);
+        playlistImage = rootView.findViewById(R.id.playlist_image);
         foreground = rootView.findViewById(R.id.foreground);
 
         playlistImage.setOnClickListener(new View.OnClickListener() {

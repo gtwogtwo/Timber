@@ -16,10 +16,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.naman14.timber.utils.LyricsLoader;
 import com.naman14.timber.MusicPlayer;
 import com.naman14.timber.R;
 import com.naman14.timber.utils.LyricsExtractor;
-import com.naman14.timber.utils.LyricsLoader;
 
 import java.io.File;
 
@@ -41,7 +41,7 @@ public class LyricsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_lyrics,container,false);
 
-        toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
+        toolbar = rootView.findViewById(R.id.toolbar);
         setupToolbar();
 
         loadLyrics();
@@ -51,9 +51,9 @@ public class LyricsFragment extends Fragment {
 
     private void loadLyrics() {
         final View lyricsView = rootView.findViewById(R.id.lyrics);
-        final TextView poweredbyTextView = (TextView) lyricsView.findViewById(R.id.lyrics_makeitpersonal);
+        final TextView poweredbyTextView = lyricsView.findViewById(R.id.lyrics_makeitpersonal);
         poweredbyTextView.setVisibility(View.GONE);
-        final TextView lyricsTextView = (TextView) lyricsView.findViewById(R.id.lyrics_text);
+        final TextView lyricsTextView = lyricsView.findViewById(R.id.lyrics_text);
         lyricsTextView.setText("Loading...");
         String filename = getRealPathFromURI(Uri.parse(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI + "/" + MusicPlayer.getCurrentAudioId()));
         if (filename != null && lyrics == null) {

@@ -26,12 +26,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.afollestad.appthemeengine.Config;
-import com.naman14.timber.R;
 import com.naman14.timber.models.Album;
 import com.naman14.timber.utils.Helpers;
-import com.naman14.timber.utils.NavigationUtils;
 import com.naman14.timber.utils.PreferencesUtility;
 import com.naman14.timber.utils.TimberUtils;
+import com.naman14.timber.R;
+import com.naman14.timber.utils.NavigationUtils;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
@@ -144,9 +144,9 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ItemHolder> 
 
         public ItemHolder(View view) {
             super(view);
-            this.title = (TextView) view.findViewById(R.id.album_title);
-            this.artist = (TextView) view.findViewById(R.id.album_artist);
-            this.albumArt = (ImageView) view.findViewById(R.id.album_art);
+            this.title = view.findViewById(R.id.album_title);
+            this.artist = view.findViewById(R.id.album_artist);
+            this.albumArt = view.findViewById(R.id.album_art);
             this.footer = view.findViewById(R.id.footer);
             view.setOnClickListener(this);
         }

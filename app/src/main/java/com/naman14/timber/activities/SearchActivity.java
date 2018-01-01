@@ -29,17 +29,22 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.naman14.timber.models.Artist;
+import com.naman14.timber.provider.SearchHistory;
 import com.naman14.timber.R;
 import com.naman14.timber.adapters.SearchAdapter;
 import com.naman14.timber.dataloaders.AlbumLoader;
 import com.naman14.timber.dataloaders.ArtistLoader;
 import com.naman14.timber.dataloaders.SongLoader;
 import com.naman14.timber.models.Album;
-import com.naman14.timber.models.Artist;
 import com.naman14.timber.models.Song;
-import com.naman14.timber.provider.SearchHistory;
+import com.naman14.timber.utils.PreferencesUtility;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.Executor;
@@ -55,6 +60,8 @@ public class SearchActivity extends BaseActivity implements SearchView.OnQueryTe
     private InputMethodManager mImm;
     private String queryString;
 
+    private AdView adView;
+
     private SearchAdapter adapter;
     private RecyclerView recyclerView;
 
@@ -68,16 +75,39 @@ public class SearchActivity extends BaseActivity implements SearchView.OnQueryTe
 
         mImm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
+        recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new SearchAdapter(this);
         recyclerView.setAdapter(adapter);
+
+        int currentMin = Calendar.getInstance().getTime().getMinutes();
+        adView = findViewById(R.id.adView);
+        if(currentMin % 10 == 0 && !PreferencesUtility.getInstance(SearchActivity.this).fullUnlocked()) {
+            AdRequest adRequest = new AdRequest.Builder().build();//TODO remove test
+            adView.loadAd(adRequest);
+        }
+        else{
+            adView.setVisibility(View.GONE);
+        }
     }
 
+    @Override
+    public void onResume(){
+        super.onResume();
+        int currentMin = Calendar.getInstance().getTime().getMinutes();
+        if(currentMin % 3 == 0 && !PreferencesUtility.getInstance(SearchActivity.this).fullUnlocked()) {
+            adView.setVisibility(View.VISIBLE);
+            AdRequest adRequest = new AdRequest.Builder().build();//TODO remove test
+            adView.loadAd(adRequest);
+        }
+        else{
+            adView.setVisibility(View.GONE);
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {

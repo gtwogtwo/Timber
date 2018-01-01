@@ -35,10 +35,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.afollestad.appthemeengine.ATE;
-import com.naman14.timber.R;
-import com.naman14.timber.dataloaders.ArtistLoader;
 import com.naman14.timber.lastfmapi.LastFmClient;
-import com.naman14.timber.lastfmapi.callbacks.ArtistInfoListener;
 import com.naman14.timber.lastfmapi.models.ArtistQuery;
 import com.naman14.timber.lastfmapi.models.LastfmArtist;
 import com.naman14.timber.models.Artist;
@@ -46,6 +43,9 @@ import com.naman14.timber.utils.ATEUtils;
 import com.naman14.timber.utils.Constants;
 import com.naman14.timber.utils.Helpers;
 import com.naman14.timber.utils.ImageUtils;
+import com.naman14.timber.R;
+import com.naman14.timber.dataloaders.ArtistLoader;
+import com.naman14.timber.lastfmapi.callbacks.ArtistInfoListener;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
@@ -87,16 +87,16 @@ public class ArtistDetailFragment extends Fragment {
         View rootView = inflater.inflate(
                 R.layout.fragment_artist_detail, container, false);
 
-        artistArt = (ImageView) rootView.findViewById(R.id.artist_art);
+        artistArt = rootView.findViewById(R.id.artist_art);
 
-        collapsingToolbarLayout = (CollapsingToolbarLayout) rootView.findViewById(R.id.collapsing_toolbar);
-        appBarLayout = (AppBarLayout) rootView.findViewById(R.id.app_bar);
+        collapsingToolbarLayout = rootView.findViewById(R.id.collapsing_toolbar);
+        appBarLayout = rootView.findViewById(R.id.app_bar);
 
         if (getArguments().getBoolean("transition")) {
             artistArt.setTransitionName(getArguments().getString("transition_name"));
         }
 
-        toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
+        toolbar = rootView.findViewById(R.id.toolbar);
         setupToolbar();
         setUpArtistDetails();
 

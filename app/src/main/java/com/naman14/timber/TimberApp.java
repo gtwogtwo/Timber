@@ -14,14 +14,12 @@
 
 package com.naman14.timber;
 
-import android.content.Context;
-import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 
 import com.afollestad.appthemeengine.ATE;
+import com.naman14.timber.permissions.Nammu;
 import com.crashlytics.android.Crashlytics;
 import com.crashlytics.android.core.CrashlyticsCore;
-import com.naman14.timber.permissions.Nammu;
 import com.naman14.timber.utils.PreferencesUtility;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -47,12 +45,6 @@ public class TimberApp extends MultiDexApplication {
         super.onCreate();
         mInstance = this;
 
-        //disable crashlytics for debug builds
-        Crashlytics crashlyticsKit = new Crashlytics.Builder()
-                .core(new CrashlyticsCore.Builder().disabled(BuildConfig.DEBUG).build())
-                .build();
-        Fabric.with(this, crashlyticsKit);
-
         ImageLoaderConfiguration localImageLoaderConfiguration = new ImageLoaderConfiguration.Builder(this).imageDownloader(new BaseImageDownloader(this) {
             PreferencesUtility prefs = PreferencesUtility.getInstance(TimberApp.this);
 
@@ -72,38 +64,38 @@ public class TimberApp extends MultiDexApplication {
 
         if (!ATE.config(this, "light_theme").isConfigured()) {
             ATE.config(this, "light_theme")
-                    .activityTheme(R.style.AppThemeLight)
-                    .primaryColorRes(R.color.colorPrimaryLightDefault)
-                    .accentColorRes(R.color.colorAccentLightDefault)
+                    .activityTheme(com.naman14.timber.R.style.AppThemeLight)
+                    .primaryColorRes(com.naman14.timber.R.color.colorPrimaryLightDefault)
+                    .accentColorRes(com.naman14.timber.R.color.colorAccentLightDefault)
                     .coloredNavigationBar(false)
                     .usingMaterialDialogs(true)
                     .commit();
         }
         if (!ATE.config(this, "dark_theme").isConfigured()) {
             ATE.config(this, "dark_theme")
-                    .activityTheme(R.style.AppThemeDark)
-                    .primaryColorRes(R.color.colorPrimaryDarkDefault)
-                    .accentColorRes(R.color.colorAccentDarkDefault)
+                    .activityTheme(com.naman14.timber.R.style.AppThemeDark)
+                    .primaryColorRes(com.naman14.timber.R.color.colorPrimaryDarkDefault)
+                    .accentColorRes(com.naman14.timber.R.color.colorAccentDarkDefault)
                     .coloredNavigationBar(false)
                     .usingMaterialDialogs(true)
                     .commit();
         }
         if (!ATE.config(this, "light_theme_notoolbar").isConfigured()) {
             ATE.config(this, "light_theme_notoolbar")
-                    .activityTheme(R.style.AppThemeLight)
+                    .activityTheme(com.naman14.timber.R.style.AppThemeLight)
                     .coloredActionBar(false)
-                    .primaryColorRes(R.color.colorPrimaryLightDefault)
-                    .accentColorRes(R.color.colorAccentLightDefault)
+                    .primaryColorRes(com.naman14.timber.R.color.colorPrimaryLightDefault)
+                    .accentColorRes(com.naman14.timber.R.color.colorAccentLightDefault)
                     .coloredNavigationBar(false)
                     .usingMaterialDialogs(true)
                     .commit();
         }
         if (!ATE.config(this, "dark_theme_notoolbar").isConfigured()) {
             ATE.config(this, "dark_theme_notoolbar")
-                    .activityTheme(R.style.AppThemeDark)
+                    .activityTheme(com.naman14.timber.R.style.AppThemeDark)
                     .coloredActionBar(false)
-                    .primaryColorRes(R.color.colorPrimaryDarkDefault)
-                    .accentColorRes(R.color.colorAccentDarkDefault)
+                    .primaryColorRes(com.naman14.timber.R.color.colorPrimaryDarkDefault)
+                    .accentColorRes(com.naman14.timber.R.color.colorAccentDarkDefault)
                     .coloredNavigationBar(true)
                     .usingMaterialDialogs(true)
                     .commit();

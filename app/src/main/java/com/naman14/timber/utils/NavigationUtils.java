@@ -23,15 +23,11 @@ import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.transition.Transition;
-import android.transition.TransitionInflater;
 import android.util.Pair;
 import android.view.View;
 import android.widget.Toast;
 
-import com.naman14.timber.R;
 import com.naman14.timber.activities.MainActivity;
-import com.naman14.timber.activities.NowPlayingActivity;
 import com.naman14.timber.activities.PlaylistDetailActivity;
 import com.naman14.timber.activities.SearchActivity;
 import com.naman14.timber.activities.SettingsActivity;
@@ -40,9 +36,11 @@ import com.naman14.timber.fragments.ArtistDetailFragment;
 import com.naman14.timber.nowplaying.Timber1;
 import com.naman14.timber.nowplaying.Timber2;
 import com.naman14.timber.nowplaying.Timber3;
-import com.naman14.timber.nowplaying.Timber4;
 import com.naman14.timber.nowplaying.Timber5;
 import com.naman14.timber.nowplaying.Timber6;
+import com.naman14.timber.R;
+import com.naman14.timber.activities.NowPlayingActivity;
+import com.naman14.timber.nowplaying.Timber4;
 
 import java.util.ArrayList;
 

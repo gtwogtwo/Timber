@@ -26,6 +26,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -38,39 +39,35 @@ import android.widget.TextView;
 
 import com.afollestad.appthemeengine.customizers.ATEActivityThemeCustomizer;
 import com.anjlab.android.iab.v3.BillingProcessor;
-import com.google.android.gms.cast.framework.CastButtonFactory;
-import com.google.android.gms.cast.framework.CastContext;
-import com.google.android.gms.cast.framework.CastSession;
-import com.google.android.gms.cast.framework.Session;
-import com.google.android.gms.cast.framework.SessionManager;
-import com.google.android.gms.cast.framework.SessionManagerListener;
-import com.google.android.gms.cast.framework.media.widget.ExpandedControllerActivity;
-import com.google.android.gms.cast.framework.media.widget.MiniControllerFragment;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.naman14.timber.MusicPlayer;
-import com.naman14.timber.R;
-import com.naman14.timber.cast.ExpandedControlsActivity;
-import com.naman14.timber.cast.SimpleSessionManagerListener;
-import com.naman14.timber.cast.WebServer;
 import com.naman14.timber.fragments.AlbumDetailFragment;
-import com.naman14.timber.fragments.ArtistDetailFragment;
 import com.naman14.timber.fragments.FoldersFragment;
-import com.naman14.timber.fragments.MainFragment;
 import com.naman14.timber.fragments.PlaylistFragment;
-import com.naman14.timber.fragments.QueueFragment;
-import com.naman14.timber.permissions.Nammu;
-import com.naman14.timber.permissions.PermissionCallback;
 import com.naman14.timber.slidinguppanel.SlidingUpPanelLayout;
 import com.naman14.timber.subfragments.LyricsFragment;
 import com.naman14.timber.utils.Constants;
 import com.naman14.timber.utils.Helpers;
-import com.naman14.timber.utils.NavigationUtils;
+import com.naman14.timber.utils.PreferencesUtility;
 import com.naman14.timber.utils.TimberUtils;
+import com.google.android.gms.cast.framework.media.widget.ExpandedControllerActivity;
+import com.naman14.timber.R;
+import com.naman14.timber.cast.ExpandedControlsActivity;
+import com.naman14.timber.fragments.ArtistDetailFragment;
+import com.naman14.timber.fragments.MainFragment;
+import com.naman14.timber.fragments.QueueFragment;
+import com.naman14.timber.permissions.Nammu;
+import com.naman14.timber.permissions.PermissionCallback;
+import com.naman14.timber.utils.NavigationUtils;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
-import java.io.IOException;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
+
+import com.google.android.gms.ads.MobileAds;
 
 public class MainActivity extends BaseActivity implements ATEActivityThemeCustomizer {
 
@@ -78,6 +75,7 @@ public class MainActivity extends BaseActivity implements ATEActivityThemeCustom
     private NavigationView navigationView;
     private TextView songtitle, songartist;
     private ImageView albumart;
+    private AdView adView;
     private String action;
     private Map<String, Runnable> navigationMap = new HashMap<String, Runnable>();
     private Handler navDrawerRunnable = new Handler();
@@ -177,10 +175,19 @@ public class MainActivity extends BaseActivity implements ATEActivityThemeCustom
         }
     };
 
-
-
+    private boolean firstOpen;
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
+        firstOpen = !PreferencesUtility.getInstance(MainActivity.this).getOpened();
+
+        Log.e(firstOpen + "", "fo value");
+
+        if(firstOpen){
+            PreferencesUtility.getInstance(MainActivity.this).setOpened();
+        }
+
+        MobileAds.initialize(this, "ca-app-pub-9777911955359820~8649319903");
 
         action = getIntent().getAction();
 
@@ -197,15 +204,15 @@ public class MainActivity extends BaseActivity implements ATEActivityThemeCustom
         navigationMap.put(Constants.NAVIGATE_ARTIST, navigateArtist);
         navigationMap.put(Constants.NAVIGATE_LYRICS, navigateLyrics);
 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        panelLayout = (SlidingUpPanelLayout) findViewById(R.id.sliding_layout);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
+        panelLayout = findViewById(R.id.sliding_layout);
 
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = findViewById(R.id.nav_view);
         View header = navigationView.inflateHeaderView(R.layout.nav_header);
 
-        albumart = (ImageView) header.findViewById(R.id.album_art);
-        songtitle = (TextView) header.findViewById(R.id.song_title);
-        songartist = (TextView) header.findViewById(R.id.song_artist);
+        albumart = header.findViewById(R.id.album_art);
+        songtitle = header.findViewById(R.id.song_title);
+        songartist = header.findViewById(R.id.song_artist);
 
         setPanelSlideListeners(panelLayout);
 
@@ -250,18 +257,44 @@ public class MainActivity extends BaseActivity implements ATEActivityThemeCustom
                     FrameLayout.LayoutParams.WRAP_CONTENT);
             params.gravity = Gravity.BOTTOM;
 
-            FrameLayout contentRoot = findViewById(R.id.content_root);
-            contentRoot.addView(LayoutInflater.from(this)
-                    .inflate(R.layout.fragment_cast_mini_controller, null), params);
+            //RelativeLayout contentRoot = findViewById(R.id.content_root);
+            //FrameLayout contentRoot = findViewById(R.id.content_root);
+            //contentRoot.addView(LayoutInflater.from(this)
+                    //.inflate(R.layout.fragment_cast_mini_controller, null), params);
 
-            findViewById(R.id.castMiniController).setOnClickListener(new View.OnClickListener() {
+            /*findViewById(R.id.castMiniController).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     startActivity(new Intent(MainActivity.this, ExpandedControllerActivity.class));
                 }
-            });
+            });*/
         }
 
+        int currentMin = Calendar.getInstance().getTime().getMinutes();
+        adView = findViewById(R.id.adViewMain);
+
+        PreferencesUtility.getInstance(MainActivity.this).setFullUnlocked(false);
+        if(currentMin % 20 == 0 && !PreferencesUtility.getInstance(MainActivity.this).fullUnlocked() && !firstOpen) {
+            AdRequest adRequest = new AdRequest.Builder().build();//TODO remove test
+            adView.loadAd(adRequest);
+        }
+        else{
+            adView.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        int currentMin = Calendar.getInstance().getTime().getMinutes();
+        if(currentMin % 9 == 0 && !PreferencesUtility.getInstance(MainActivity.this).fullUnlocked() && !firstOpen) {
+            adView.setVisibility(View.VISIBLE);
+            AdRequest adRequest = new AdRequest.Builder().build();//TODO remove test
+            adView.loadAd(adRequest);
+        }
+        else{
+            adView.setVisibility(View.GONE);
+        }
     }
 
     private void loadEverything() {

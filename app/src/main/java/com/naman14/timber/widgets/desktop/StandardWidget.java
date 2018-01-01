@@ -10,9 +10,9 @@ import android.text.TextUtils;
 import android.widget.RemoteViews;
 
 import com.naman14.timber.MusicService;
+import com.naman14.timber.utils.TimberUtils;
 import com.naman14.timber.R;
 import com.naman14.timber.utils.NavigationUtils;
-import com.naman14.timber.utils.TimberUtils;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 /**
@@ -59,10 +59,8 @@ public class StandardWidget extends BaseWidget {
                 remoteViews.setTextViewText(R.id.textView_title, t);
             }
             t = extras.getString("artist");
-            ;
             if (t != null) {
                 String album = extras.getString("album");
-                ;
                 if (!TextUtils.isEmpty(album)) {
                     t += " - " + album;
                 }

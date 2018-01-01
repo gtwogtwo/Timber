@@ -66,14 +66,14 @@ import android.support.v7.graphics.Palette;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.naman14.timber.helpers.MediaButtonIntentReceiver;
-import com.naman14.timber.helpers.MusicPlaybackTrack;
 import com.naman14.timber.lastfmapi.LastFmClient;
 import com.naman14.timber.lastfmapi.models.LastfmUserSession;
 import com.naman14.timber.lastfmapi.models.ScrobbleQuery;
+import com.naman14.timber.provider.RecentStore;
+import com.naman14.timber.helpers.MediaButtonIntentReceiver;
+import com.naman14.timber.helpers.MusicPlaybackTrack;
 import com.naman14.timber.permissions.Nammu;
 import com.naman14.timber.provider.MusicPlaybackState;
-import com.naman14.timber.provider.RecentStore;
 import com.naman14.timber.provider.SongPlayCount;
 import com.naman14.timber.utils.NavigationUtils;
 import com.naman14.timber.utils.PreferencesUtility;
@@ -1248,7 +1248,7 @@ public class MusicService extends Service {
                 ? artistName : artistName + " - " + albumName;
 
         int playButtonResId = isPlaying
-                ? R.drawable.ic_pause_white_36dp : R.drawable.ic_play_white_36dp;
+                ? com.naman14.timber.R.drawable.ic_pause_white_36dp : com.naman14.timber.R.drawable.ic_play_white_36dp;
 
         Intent nowPlayingIntent = NavigationUtils.getNowPlayingIntent(this);
         PendingIntent clickIntent = PendingIntent.getActivity(this, 0, nowPlayingIntent, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -1256,7 +1256,7 @@ public class MusicService extends Service {
         artwork = ImageLoader.getInstance().loadImageSync(TimberUtils.getAlbumArtUri(getAlbumId()).toString());
 
         if (artwork == null) {
-            artwork = ImageLoader.getInstance().loadImageSync("drawable://" + R.drawable.ic_empty_music2);
+            artwork = ImageLoader.getInstance().loadImageSync("drawable://" + com.naman14.timber.R.drawable.ic_empty_music2);
         }
 
         if (mNotificationPostTime == 0) {
@@ -1264,18 +1264,18 @@ public class MusicService extends Service {
         }
 
         android.support.v4.app.NotificationCompat.Builder builder = new android.support.v4.app.NotificationCompat.Builder(this, CHANNEL_ID)
-                .setSmallIcon(R.drawable.ic_notification)
+                .setSmallIcon(com.naman14.timber.R.drawable.ic_notification)
                 .setLargeIcon(artwork)
                 .setContentIntent(clickIntent)
                 .setContentTitle(getTrackName())
                 .setContentText(text)
                 .setWhen(mNotificationPostTime)
-                .addAction(R.drawable.ic_skip_previous_white_36dp,
+                .addAction(com.naman14.timber.R.drawable.ic_skip_previous_white_36dp,
                         "",
                         retrievePlaybackAction(PREVIOUS_ACTION))
                 .addAction(playButtonResId, "",
                         retrievePlaybackAction(TOGGLEPAUSE_ACTION))
-                .addAction(R.drawable.ic_skip_next_white_36dp,
+                .addAction(com.naman14.timber.R.drawable.ic_skip_next_white_36dp,
                         "",
                         retrievePlaybackAction(NEXT_ACTION));
 

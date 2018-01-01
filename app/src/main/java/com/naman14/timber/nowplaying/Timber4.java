@@ -29,10 +29,10 @@ import android.widget.ImageView;
 
 import com.naman14.timber.MusicPlayer;
 import com.naman14.timber.MusicService;
-import com.naman14.timber.R;
 import com.naman14.timber.adapters.SlidingQueueAdapter;
-import com.naman14.timber.dataloaders.QueueLoader;
 import com.naman14.timber.utils.ImageUtils;
+import com.naman14.timber.R;
+import com.naman14.timber.dataloaders.QueueLoader;
 
 import net.steamcrafted.materialiconlib.MaterialDrawableBuilder;
 
@@ -50,8 +50,8 @@ public class Timber4 extends BaseNowplayingFragment {
         setMusicStateListener();
         setSongDetails(rootView);
 
-        mBlurredArt = (ImageView) rootView.findViewById(R.id.album_art_blurred);
-        horizontalRecyclerview = (RecyclerView) rootView.findViewById(R.id.queue_recyclerview_horizontal);
+        mBlurredArt = rootView.findViewById(R.id.album_art_blurred);
+        horizontalRecyclerview = rootView.findViewById(R.id.queue_recyclerview_horizontal);
 
         setupHorizontalQueue();
         initGestures(mBlurredArt);

@@ -25,9 +25,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import com.naman14.timber.MusicPlayer;
-import com.naman14.timber.R;
 import com.naman14.timber.models.Song;
 import com.naman14.timber.utils.TimberUtils;
+import com.naman14.timber.R;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -93,7 +93,7 @@ public class SlidingQueueAdapter extends RecyclerView.Adapter<SlidingQueueAdapte
 
         public ItemHolder(View view) {
             super(view);
-            this.albumArt = (ImageView) view.findViewById(R.id.album_art);
+            this.albumArt = view.findViewById(R.id.album_art);
             view.setOnClickListener(this);
         }
 

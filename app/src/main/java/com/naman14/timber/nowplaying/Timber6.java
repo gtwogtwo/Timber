@@ -42,8 +42,8 @@ public class Timber6 extends BaseNowplayingFragment {
         ((SeekBar) rootView.findViewById(R.id.song_progress)).getProgressDrawable().setColorFilter(new PorterDuffColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY));
         ((SeekBar) rootView.findViewById(R.id.song_progress)).getThumb().setColorFilter(new PorterDuffColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP));
 
-        nextSong = (TextView) rootView.findViewById(R.id.title_next);
-        nextArt = (CircleImageView) rootView.findViewById(R.id.album_art_next);
+        nextSong = rootView.findViewById(R.id.title_next);
+        nextArt = rootView.findViewById(R.id.album_art_next);
 
         rootView.findViewById(R.id.nextView).setOnClickListener(new View.OnClickListener() {
             @Override

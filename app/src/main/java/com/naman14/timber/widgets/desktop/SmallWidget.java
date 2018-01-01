@@ -9,9 +9,9 @@ import android.os.Bundle;
 import android.widget.RemoteViews;
 
 import com.naman14.timber.MusicService;
+import com.naman14.timber.utils.TimberUtils;
 import com.naman14.timber.R;
 import com.naman14.timber.utils.NavigationUtils;
-import com.naman14.timber.utils.TimberUtils;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 /**

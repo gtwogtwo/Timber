@@ -27,12 +27,12 @@ import android.widget.TextView;
 
 import com.afollestad.appthemeengine.Config;
 import com.naman14.timber.MusicPlayer;
+import com.naman14.timber.utils.Helpers;
+import com.naman14.timber.utils.TimberUtils;
 import com.naman14.timber.R;
 import com.naman14.timber.dialogs.AddPlaylistDialog;
 import com.naman14.timber.models.Song;
-import com.naman14.timber.utils.Helpers;
 import com.naman14.timber.utils.NavigationUtils;
-import com.naman14.timber.utils.TimberUtils;
 import com.naman14.timber.widgets.MusicVisualizer;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -156,11 +156,11 @@ public class BaseQueueAdapter extends RecyclerView.Adapter<BaseQueueAdapter.Item
 
         public ItemHolder(View view) {
             super(view);
-            this.title = (TextView) view.findViewById(R.id.song_title);
-            this.artist = (TextView) view.findViewById(R.id.song_artist);
-            this.albumArt = (ImageView) view.findViewById(R.id.albumArt);
-            this.popupMenu = (ImageView) view.findViewById(R.id.popup_menu);
-            visualizer = (MusicVisualizer) view.findViewById(R.id.visualizer);
+            this.title = view.findViewById(R.id.song_title);
+            this.artist = view.findViewById(R.id.song_artist);
+            this.albumArt = view.findViewById(R.id.albumArt);
+            this.popupMenu = view.findViewById(R.id.popup_menu);
+            visualizer = view.findViewById(R.id.visualizer);
             view.setOnClickListener(this);
         }
 

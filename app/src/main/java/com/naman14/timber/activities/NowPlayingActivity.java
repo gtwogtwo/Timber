@@ -12,10 +12,13 @@ import android.support.v4.app.FragmentManager;
 import com.afollestad.appthemeengine.Config;
 import com.afollestad.appthemeengine.customizers.ATEActivityThemeCustomizer;
 import com.afollestad.appthemeengine.customizers.ATEToolbarCustomizer;
-import com.naman14.timber.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
 import com.naman14.timber.utils.Constants;
 import com.naman14.timber.utils.NavigationUtils;
 import com.naman14.timber.utils.PreferencesUtility;
+import com.naman14.timber.R;
 
 /**
  * Created by naman on 01/01/16.
@@ -35,6 +38,11 @@ public class NowPlayingActivity extends BaseActivity implements ATEActivityTheme
         fragmentManager.beginTransaction()
                 .replace(R.id.container, fragment).commit();
 
+        AdView adView = new AdView(this);
+        adView.setAdSize(AdSize.SMART_BANNER);
+        adView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
     }
 
     @StyleRes

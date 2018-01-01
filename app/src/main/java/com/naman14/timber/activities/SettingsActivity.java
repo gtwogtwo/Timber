@@ -29,10 +29,10 @@ import com.afollestad.appthemeengine.ATE;
 import com.afollestad.appthemeengine.Config;
 import com.afollestad.appthemeengine.customizers.ATEActivityThemeCustomizer;
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
-import com.naman14.timber.R;
 import com.naman14.timber.fragments.SettingsFragment;
 import com.naman14.timber.subfragments.StyleSelectorFragment;
 import com.naman14.timber.utils.Constants;
+import com.naman14.timber.R;
 import com.naman14.timber.utils.PreferencesUtility;
 
 public class SettingsActivity extends BaseThemedActivity implements ColorChooserDialog.ColorCallback, ATEActivityThemeCustomizer {
@@ -49,7 +49,7 @@ public class SettingsActivity extends BaseThemedActivity implements ColorChooser
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

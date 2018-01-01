@@ -17,14 +17,14 @@
     <application
         android:name=".TimberApp"
         android:allowBackup="false"
-        android:icon="@mipmap/ic_launcher"
-        android:label="Timber${appNameSuffix}"
+        android:icon="@mipmap/ic_launcher_foreground"
+        android:label="Musica"
         android:theme="@style/AppTheme.FullScreen.Light"
         tools:replace="android:allowBackup, android:label">
 
         <activity
             android:name=".activities.MainActivity"
-            android:label="Timber${appNameSuffix}"
+            android:label="Musica"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -114,11 +114,6 @@
             </intent-filter>
         </service>
 
-        <!--use your own api key for fabric-->
-        <meta-data
-            android:name="io.fabric.ApiKey"
-            android:value="@string/fabric_api_key" />
-
         <meta-data
             android:name=
                 "com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
@@ -154,6 +149,9 @@
                 android:resource="@xml/widget_small" />
         </receiver>
 
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="02f4c7dd7743e1545bebc1cdb0d3fa24e7f01d08" />
     </application>
 
 </manifest>

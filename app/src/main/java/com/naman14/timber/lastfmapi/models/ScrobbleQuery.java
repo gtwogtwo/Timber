@@ -1,7 +1,6 @@
 package com.naman14.timber.lastfmapi.models;
 
 import com.google.gson.annotations.SerializedName;
-import com.naman14.timber.lastfmapi.LastFmClient;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;

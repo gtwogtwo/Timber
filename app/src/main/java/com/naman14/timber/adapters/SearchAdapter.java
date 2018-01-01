@@ -27,17 +27,17 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import com.naman14.timber.MusicPlayer;
-import com.naman14.timber.R;
-import com.naman14.timber.dialogs.AddPlaylistDialog;
 import com.naman14.timber.lastfmapi.LastFmClient;
-import com.naman14.timber.lastfmapi.callbacks.ArtistInfoListener;
 import com.naman14.timber.lastfmapi.models.ArtistQuery;
 import com.naman14.timber.lastfmapi.models.LastfmArtist;
 import com.naman14.timber.models.Album;
 import com.naman14.timber.models.Artist;
+import com.naman14.timber.utils.TimberUtils;
+import com.naman14.timber.R;
+import com.naman14.timber.dialogs.AddPlaylistDialog;
+import com.naman14.timber.lastfmapi.callbacks.ArtistInfoListener;
 import com.naman14.timber.models.Song;
 import com.naman14.timber.utils.NavigationUtils;
-import com.naman14.timber.utils.TimberUtils;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
@@ -217,17 +217,17 @@ public class SearchAdapter extends BaseSongAdapter<SearchAdapter.ItemHolder> {
         public ItemHolder(View view) {
             super(view);
 
-            this.title = (TextView) view.findViewById(R.id.song_title);
-            this.songartist = (TextView) view.findViewById(R.id.song_artist);
-            this.albumsongcount = (TextView) view.findViewById(R.id.album_song_count);
-            this.artisttitle = (TextView) view.findViewById(R.id.artist_name);
-            this.albumtitle = (TextView) view.findViewById(R.id.album_title);
-            this.albumartist = (TextView) view.findViewById(R.id.album_artist);
-            this.albumArt = (ImageView) view.findViewById(R.id.albumArt);
-            this.artistImage = (ImageView) view.findViewById(R.id.artistImage);
-            this.menu = (ImageView) view.findViewById(R.id.popup_menu);
+            this.title = view.findViewById(R.id.song_title);
+            this.songartist = view.findViewById(R.id.song_artist);
+            this.albumsongcount = view.findViewById(R.id.album_song_count);
+            this.artisttitle = view.findViewById(R.id.artist_name);
+            this.albumtitle = view.findViewById(R.id.album_title);
+            this.albumartist = view.findViewById(R.id.album_artist);
+            this.albumArt = view.findViewById(R.id.albumArt);
+            this.artistImage = view.findViewById(R.id.artistImage);
+            this.menu = view.findViewById(R.id.popup_menu);
 
-            this.sectionHeader = (TextView) view.findViewById(R.id.section_header);
+            this.sectionHeader = view.findViewById(R.id.section_header);
 
 
             view.setOnClickListener(this);

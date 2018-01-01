@@ -498,7 +498,7 @@ public class MusicPlayer {
         }
         try {
             mService.enqueue(list, MusicService.NEXT, sourceId, sourceType.mId);
-            final String message = makeLabel(context, R.plurals.NNNtrackstoqueue, list.length);
+            final String message = makeLabel(context, com.naman14.timber.R.plurals.NNNtrackstoqueue, list.length);
             Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
         } catch (final RemoteException ignored) {
         }
@@ -664,7 +664,7 @@ public class MusicPlayer {
         }
         try {
             mService.enqueue(list, MusicService.LAST, sourceId, sourceType.mId);
-            final String message = makeLabel(context, R.plurals.NNNtrackstoqueue, list.length);
+            final String message = makeLabel(context, com.naman14.timber.R.plurals.NNNtrackstoqueue, list.length);
             Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
         } catch (final RemoteException ignored) {
         }
@@ -704,7 +704,7 @@ public class MusicPlayer {
             numinserted += resolver.bulkInsert(uri, mContentValuesCache);
         }
         final String message = context.getResources().getQuantityString(
-                R.plurals.NNNtrackstoplaylist, numinserted, numinserted);
+                com.naman14.timber.R.plurals.NNNtrackstoplaylist, numinserted, numinserted);
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
     }
 

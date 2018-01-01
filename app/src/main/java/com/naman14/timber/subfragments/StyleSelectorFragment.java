@@ -24,8 +24,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.naman14.timber.R;
 import com.naman14.timber.utils.Constants;
+import com.naman14.timber.R;
 import com.naman14.timber.utils.NavigationUtils;
 import com.naman14.timber.widgets.MultiViewPager;
 
@@ -63,7 +63,7 @@ public class StyleSelectorFragment extends Fragment {
         if (ACTION.equals(Constants.SETTINGS_STYLE_SELECTOR_NOWPLAYING)) {
 
         }
-        pager = (MultiViewPager) rootView.findViewById(R.id.pager);
+        pager = rootView.findViewById(R.id.pager);
 
         adapter = new FragmentStatePagerAdapter(getChildFragmentManager()) {
 

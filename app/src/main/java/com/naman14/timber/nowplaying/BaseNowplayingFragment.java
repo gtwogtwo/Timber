@@ -42,22 +42,22 @@ import com.afollestad.appthemeengine.ATE;
 import com.afollestad.appthemeengine.Config;
 import com.naman14.timber.MusicPlayer;
 import com.naman14.timber.MusicService;
-import com.naman14.timber.R;
 import com.naman14.timber.activities.BaseActivity;
 import com.naman14.timber.adapters.BaseQueueAdapter;
-import com.naman14.timber.adapters.SlidingQueueAdapter;
-import com.naman14.timber.dataloaders.QueueLoader;
 import com.naman14.timber.listeners.MusicStateListener;
 import com.naman14.timber.timely.TimelyView;
 import com.naman14.timber.utils.Helpers;
+import com.naman14.timber.utils.TimberUtils;
+import com.naman14.timber.widgets.CircularSeekBar;
+import com.naman14.timber.widgets.PlayPauseDrawable;
+import com.naman14.timber.R;
+import com.naman14.timber.adapters.SlidingQueueAdapter;
+import com.naman14.timber.dataloaders.QueueLoader;
 import com.naman14.timber.utils.NavigationUtils;
 import com.naman14.timber.utils.PreferencesUtility;
 import com.naman14.timber.utils.SlideTrackSwitcher;
-import com.naman14.timber.utils.TimberUtils;
-import com.naman14.timber.widgets.CircularSeekBar;
 import com.naman14.timber.widgets.DividerItemDecoration;
 import com.naman14.timber.widgets.PlayPauseButton;
-import com.naman14.timber.widgets.PlayPauseDrawable;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
@@ -272,34 +272,34 @@ public class BaseNowplayingFragment extends Fragment implements MusicStateListen
 
     public void setSongDetails(View view) {
 
-        albumart = (ImageView) view.findViewById(R.id.album_art);
-        shuffle = (ImageView) view.findViewById(R.id.shuffle);
-        repeat = (ImageView) view.findViewById(R.id.repeat);
-        next = (MaterialIconView) view.findViewById(R.id.next);
-        previous = (MaterialIconView) view.findViewById(R.id.previous);
-        mPlayPause = (PlayPauseButton) view.findViewById(R.id.playpause);
-        playPauseFloating = (FloatingActionButton) view.findViewById(R.id.playpausefloating);
+        albumart = view.findViewById(R.id.album_art);
+        shuffle = view.findViewById(R.id.shuffle);
+        repeat = view.findViewById(R.id.repeat);
+        next = view.findViewById(R.id.next);
+        previous = view.findViewById(R.id.previous);
+        mPlayPause = view.findViewById(R.id.playpause);
+        playPauseFloating = view.findViewById(R.id.playpausefloating);
         playPauseWrapper = view.findViewById(R.id.playpausewrapper);
 
-        songtitle = (TextView) view.findViewById(R.id.song_title);
-        songalbum = (TextView) view.findViewById(R.id.song_album);
-        songartist = (TextView) view.findViewById(R.id.song_artist);
-        songduration = (TextView) view.findViewById(R.id.song_duration);
-        elapsedtime = (TextView) view.findViewById(R.id.song_elapsed_time);
+        songtitle = view.findViewById(R.id.song_title);
+        songalbum = view.findViewById(R.id.song_album);
+        songartist = view.findViewById(R.id.song_artist);
+        songduration = view.findViewById(R.id.song_duration);
+        elapsedtime = view.findViewById(R.id.song_elapsed_time);
 
-        timelyView11 = (TimelyView) view.findViewById(R.id.timelyView11);
-        timelyView12 = (TimelyView) view.findViewById(R.id.timelyView12);
-        timelyView13 = (TimelyView) view.findViewById(R.id.timelyView13);
-        timelyView14 = (TimelyView) view.findViewById(R.id.timelyView14);
-        timelyView15 = (TimelyView) view.findViewById(R.id.timelyView15);
-        hourColon = (TextView) view.findViewById(R.id.hour_colon);
+        timelyView11 = view.findViewById(R.id.timelyView11);
+        timelyView12 = view.findViewById(R.id.timelyView12);
+        timelyView13 = view.findViewById(R.id.timelyView13);
+        timelyView14 = view.findViewById(R.id.timelyView14);
+        timelyView15 = view.findViewById(R.id.timelyView15);
+        hourColon = view.findViewById(R.id.hour_colon);
 
-        mProgress = (SeekBar) view.findViewById(R.id.song_progress);
-        mCircularProgress = (CircularSeekBar) view.findViewById(R.id.song_progress_circular);
+        mProgress = view.findViewById(R.id.song_progress);
+        mCircularProgress = view.findViewById(R.id.song_progress_circular);
 
-        recyclerView = (RecyclerView) view.findViewById(R.id.queue_recyclerview);
+        recyclerView = view.findViewById(R.id.queue_recyclerview);
 
-        Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
+        Toolbar toolbar = view.findViewById(R.id.toolbar);
         if (toolbar != null) {
             ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
             final ActionBar ab = ((AppCompatActivity) getActivity()).getSupportActionBar();

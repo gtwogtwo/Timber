@@ -28,8 +28,6 @@ import android.support.annotation.Nullable;
 
 import com.naman14.timber.dataloaders.AlbumLoader;
 import com.naman14.timber.dataloaders.AlbumSongLoader;
-import com.naman14.timber.dataloaders.ArtistAlbumLoader;
-import com.naman14.timber.dataloaders.ArtistLoader;
 import com.naman14.timber.dataloaders.ArtistSongLoader;
 import com.naman14.timber.dataloaders.PlaylistLoader;
 import com.naman14.timber.dataloaders.PlaylistSongLoader;
@@ -39,6 +37,8 @@ import com.naman14.timber.models.Artist;
 import com.naman14.timber.models.Playlist;
 import com.naman14.timber.models.Song;
 import com.naman14.timber.utils.TimberUtils;
+import com.naman14.timber.dataloaders.ArtistAlbumLoader;
+import com.naman14.timber.dataloaders.ArtistLoader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -184,30 +184,30 @@ public class WearBrowserService extends MediaBrowserService {
         mMediaRoot.add(new MediaBrowser.MediaItem(
                 new MediaDescription.Builder()
                         .setMediaId(Integer.toString(TYPE_ARTIST))
-                        .setTitle(getString(R.string.artists))
+                        .setTitle(getString(com.naman14.timber.R.string.artists))
                         .setIconUri(Uri.parse("android.resource://" +
                                 "naman14.timber/drawable/ic_empty_music2"))
-                        .setSubtitle(getString(R.string.artists))
+                        .setSubtitle(getString(com.naman14.timber.R.string.artists))
                         .build(), MediaBrowser.MediaItem.FLAG_BROWSABLE
         ));
 
         mMediaRoot.add(new MediaBrowser.MediaItem(
                 new MediaDescription.Builder()
                         .setMediaId(Integer.toString(TYPE_ALBUM))
-                        .setTitle(getString(R.string.albums))
+                        .setTitle(getString(com.naman14.timber.R.string.albums))
                         .setIconUri(Uri.parse("android.resource://" +
                                 "naman14.timber/drawable/ic_empty_music2"))
-                        .setSubtitle(getString(R.string.albums))
+                        .setSubtitle(getString(com.naman14.timber.R.string.albums))
                         .build(), MediaBrowser.MediaItem.FLAG_BROWSABLE
         ));
 
         mMediaRoot.add(new MediaBrowser.MediaItem(
                 new MediaDescription.Builder()
                         .setMediaId(Integer.toString(TYPE_SONG))
-                        .setTitle(getString(R.string.songs))
+                        .setTitle(getString(com.naman14.timber.R.string.songs))
                         .setIconUri(Uri.parse("android.resource://" +
                                 "naman14.timber/drawable/ic_empty_music2"))
-                        .setSubtitle(getString(R.string.songs))
+                        .setSubtitle(getString(com.naman14.timber.R.string.songs))
                         .build(), MediaBrowser.MediaItem.FLAG_BROWSABLE
         ));
 
@@ -215,10 +215,10 @@ public class WearBrowserService extends MediaBrowserService {
         mMediaRoot.add(new MediaBrowser.MediaItem(
                 new MediaDescription.Builder()
                         .setMediaId(Integer.toString(TYPE_PLAYLIST))
-                        .setTitle(getString(R.string.playlists))
+                        .setTitle(getString(com.naman14.timber.R.string.playlists))
                         .setIconUri(Uri.parse("android.resource://" +
                                 "naman14.timber/drawable/ic_empty_music2"))
-                        .setSubtitle(getString(R.string.playlists))
+                        .setSubtitle(getString(com.naman14.timber.R.string.playlists))
                         .build(), MediaBrowser.MediaItem.FLAG_BROWSABLE
         ));
 
@@ -240,8 +240,8 @@ public class WearBrowserService extends MediaBrowserService {
                         case TYPE_ARTIST:
                             List<Artist> artistList = ArtistLoader.getAllArtists(mContext);
                             for (Artist artist : artistList) {
-                                String albumNmber = TimberUtils.makeLabel(mContext, R.plurals.Nalbums, artist.albumCount);
-                                String songCount = TimberUtils.makeLabel(mContext, R.plurals.Nsongs, artist.songCount);
+                                String albumNmber = TimberUtils.makeLabel(mContext, com.naman14.timber.R.plurals.Nalbums, artist.albumCount);
+                                String songCount = TimberUtils.makeLabel(mContext, com.naman14.timber.R.plurals.Nsongs, artist.songCount);
                                 fillMediaItems(mediaItems, Integer.toString(TYPE_ARTIST_SONG_ALBUMS) + Long.toString(artist.id), artist.name, Uri.parse("android.resource://" +
                                         "naman14.timber/drawable/ic_empty_music2"), TimberUtils.makeCombinedString(mContext, albumNmber, songCount), MediaBrowser.MediaItem.FLAG_BROWSABLE);
                             }
@@ -269,7 +269,7 @@ public class WearBrowserService extends MediaBrowserService {
                                     "naman14.timber/drawable/ic_empty_music2"), "All songs by artist", MediaBrowser.MediaItem.FLAG_BROWSABLE);
                             List<Album> artistAlbums = ArtistAlbumLoader.getAlbumsForArtist(mContext, Long.parseLong(parentId.substring(1)));
                             for (Album album : artistAlbums) {
-                                String songCount = TimberUtils.makeLabel(mContext, R.plurals.Nsongs, album.songCount);
+                                String songCount = TimberUtils.makeLabel(mContext, com.naman14.timber.R.plurals.Nsongs, album.songCount);
                                 fillMediaItems(mediaItems, Integer.toString(TYPE_ALBUM_SONGS) + Long.toString(album.id), album.title, TimberUtils.getAlbumArtUri(album.id), songCount, MediaBrowser.MediaItem.FLAG_BROWSABLE);
 
                             }
@@ -283,7 +283,7 @@ public class WearBrowserService extends MediaBrowserService {
                         case TYPE_PLAYLIST:
                             List<Playlist> playlistList = PlaylistLoader.getPlaylists(mContext, false);
                             for (Playlist playlist : playlistList) {
-                                String songCount = TimberUtils.makeLabel(mContext, R.plurals.Nsongs, playlist.songCount);
+                                String songCount = TimberUtils.makeLabel(mContext, com.naman14.timber.R.plurals.Nsongs, playlist.songCount);
                                 fillMediaItems(mediaItems, Integer.toString(TYPE_PLAYLIST_ALL_SONGS) + Long.toString(playlist.id), playlist.name,
                                         Uri.parse("android.resource://" +
                                                 "naman14.timber/drawable/ic_empty_music2"), songCount, MediaBrowser.MediaItem.FLAG_BROWSABLE);

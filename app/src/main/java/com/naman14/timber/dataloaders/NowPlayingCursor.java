@@ -26,8 +26,6 @@ import com.naman14.timber.MusicPlayer;
 
 import java.util.Arrays;
 
-import static com.naman14.timber.MusicPlayer.mService;
-
 
 public class NowPlayingCursor extends AbstractCursor {
 
@@ -250,7 +248,7 @@ public class NowPlayingCursor extends AbstractCursor {
 
     public boolean removeItem(final int which) {
         try {
-            if (mService.removeTracks(which, which) == 0) {
+            if (MusicPlayer.mService.removeTracks(which, which) == 0) {
                 return false;
             }
             int i = which;

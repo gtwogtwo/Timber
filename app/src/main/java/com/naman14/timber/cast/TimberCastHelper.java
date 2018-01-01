@@ -1,17 +1,15 @@
 package com.naman14.timber.cast;
 
 import android.net.Uri;
-import android.util.Log;
 
+import com.naman14.timber.utils.Constants;
+import com.naman14.timber.utils.TimberUtils;
 import com.google.android.gms.cast.MediaInfo;
 import com.google.android.gms.cast.MediaMetadata;
-import com.google.android.gms.cast.TextTrackStyle;
 import com.google.android.gms.cast.framework.CastSession;
 import com.google.android.gms.cast.framework.media.RemoteMediaClient;
 import com.google.android.gms.common.images.WebImage;
 import com.naman14.timber.models.Song;
-import com.naman14.timber.utils.Constants;
-import com.naman14.timber.utils.TimberUtils;
 
 import java.net.MalformedURLException;
 import java.net.URL;

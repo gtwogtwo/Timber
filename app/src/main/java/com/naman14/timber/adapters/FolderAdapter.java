@@ -17,7 +17,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.naman14.timber.MusicPlayer;
 import com.naman14.timber.R;
 import com.naman14.timber.dataloaders.FolderLoader;
 import com.naman14.timber.dataloaders.SongLoader;
@@ -206,8 +205,8 @@ public class FolderAdapter extends BaseSongAdapter<FolderAdapter.ItemHolder> imp
 
         public ItemHolder(View view) {
             super(view);
-            this.title = (TextView) view.findViewById(R.id.folder_title);
-            this.albumArt = (ImageView) view.findViewById(R.id.album_art);
+            this.title = view.findViewById(R.id.folder_title);
+            this.albumArt = view.findViewById(R.id.album_art);
             view.setOnClickListener(this);
         }
 

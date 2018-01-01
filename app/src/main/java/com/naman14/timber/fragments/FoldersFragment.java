@@ -45,7 +45,7 @@ public class FoldersFragment extends Fragment implements StorageSelectDialog.OnD
         View rootView = inflater.inflate(
                 R.layout.fragment_folders, container, false);
 
-        Toolbar toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
+        Toolbar toolbar = rootView.findViewById(R.id.toolbar);
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
 
         ActionBar ab = ((AppCompatActivity) getActivity()).getSupportActionBar();
@@ -53,9 +53,9 @@ public class FoldersFragment extends Fragment implements StorageSelectDialog.OnD
         ab.setDisplayHomeAsUpEnabled(true);
         ab.setTitle(R.string.folders);
 
-        recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerview);
-        fastScroller = (FastScroller) rootView.findViewById(R.id.fastscroller);
-        mProgressBar = (ProgressBar) rootView.findViewById(R.id.progressBar);
+        recyclerView = rootView.findViewById(R.id.recyclerview);
+        fastScroller = rootView.findViewById(R.id.fastscroller);
+        mProgressBar = rootView.findViewById(R.id.progressBar);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 

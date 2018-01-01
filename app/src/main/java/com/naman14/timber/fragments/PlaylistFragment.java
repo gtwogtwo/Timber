@@ -36,13 +36,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.afollestad.appthemeengine.ATE;
+import com.naman14.timber.subfragments.PlaylistPagerFragment;
+import com.naman14.timber.utils.Constants;
 import com.naman14.timber.R;
 import com.naman14.timber.adapters.PlaylistAdapter;
 import com.naman14.timber.dataloaders.PlaylistLoader;
 import com.naman14.timber.dialogs.CreatePlaylistDialog;
 import com.naman14.timber.models.Playlist;
-import com.naman14.timber.subfragments.PlaylistPagerFragment;
-import com.naman14.timber.utils.Constants;
 import com.naman14.timber.utils.PreferencesUtility;
 import com.naman14.timber.widgets.DividerItemDecoration;
 import com.naman14.timber.widgets.MultiViewPager;
@@ -82,9 +82,9 @@ public class PlaylistFragment extends Fragment {
         View rootView = inflater.inflate(
                 R.layout.fragment_playlist, container, false);
 
-        Toolbar toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
-        pager = (MultiViewPager) rootView.findViewById(R.id.playlistpager);
-        recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerview);
+        Toolbar toolbar = rootView.findViewById(R.id.toolbar);
+        pager = rootView.findViewById(R.id.playlistpager);
+        recyclerView = rootView.findViewById(R.id.recyclerview);
 
 
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);

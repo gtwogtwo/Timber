@@ -22,8 +22,8 @@ import android.provider.BaseColumns;
 import android.provider.MediaStore;
 import android.provider.MediaStore.Audio.PlaylistsColumns;
 
-import com.naman14.timber.models.Playlist;
 import com.naman14.timber.utils.TimberUtils;
+import com.naman14.timber.models.Playlist;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -15,8 +15,8 @@ import android.widget.Toast;
 import com.anjlab.android.iab.v3.BillingProcessor;
 import com.anjlab.android.iab.v3.SkuDetails;
 import com.anjlab.android.iab.v3.TransactionDetails;
-import com.naman14.timber.R;
 import com.naman14.timber.utils.PreferencesUtility;
+import com.naman14.timber.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -28,12 +28,12 @@ import java.util.List;
  */
 public class DonateActivity extends BaseThemedActivity implements BillingProcessor.IBillingHandler {
 
-    private static final String DONATION_1 = "naman14.timber.donate_1";
-    private static final String DONATION_2 = "naman14.timber.donate_2";
-    private static final String DONATION_3 = "naman14.timber.donate_3";
-    private static final String DONATION_5 = "naman14.timber.donate_5";
-    private static final String DONATION_10 = "naman14.timber.donate_10";
-    private static final String DONATION_20 = "naman14.timber.donate_20";
+    private static final String DONATION_1 = "donation_1";
+    private static final String DONATION_2 = "donation_2";
+    private static final String DONATION_3 = "donation_3";
+    private static final String DONATION_5 = "donation_5";
+    private static final String DONATION_10 = "donation_10";
+    private static final String DONATION_20 = "donation_20";
 
 
     private boolean readyToPurchase = false;
@@ -50,16 +50,16 @@ public class DonateActivity extends BaseThemedActivity implements BillingProcess
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donate);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Support development");
         action = getIntent().getAction();
 
-        productListView = (LinearLayout) findViewById(R.id.product_list);
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        status = (TextView) findViewById(R.id.donation_status);
+        productListView = findViewById(R.id.product_list);
+        progressBar = findViewById(R.id.progressBar);
+        status = findViewById(R.id.donation_status);
 
         if (action != null && action.equals("restore")) {
             status.setText("Restoring purchases..");
@@ -186,7 +186,7 @@ public class DonateActivity extends BaseThemedActivity implements BillingProcess
                     final SkuDetails product = productList.get(i);
                     View rootView = LayoutInflater.from(DonateActivity.this).inflate(R.layout.item_donate_product, productListView, false);
 
-                    TextView detail = (TextView) rootView.findViewById(R.id.product_detail);
+                    TextView detail = rootView.findViewById(R.id.product_detail);
                     detail.setText(product.priceText);
 
                     rootView.findViewById(R.id.btn_donate).setOnClickListener(new View.OnClickListener() {

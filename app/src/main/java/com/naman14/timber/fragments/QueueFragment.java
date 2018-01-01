@@ -21,7 +21,6 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -30,14 +29,14 @@ import android.view.ViewGroup;
 
 import com.afollestad.appthemeengine.ATE;
 import com.naman14.timber.MusicPlayer;
-import com.naman14.timber.R;
 import com.naman14.timber.activities.BaseActivity;
 import com.naman14.timber.adapters.PlayingQueueAdapter;
-import com.naman14.timber.dataloaders.QueueLoader;
 import com.naman14.timber.listeners.MusicStateListener;
 import com.naman14.timber.models.Song;
 import com.naman14.timber.widgets.BaseRecyclerView;
 import com.naman14.timber.widgets.DragSortRecycler;
+import com.naman14.timber.R;
+import com.naman14.timber.dataloaders.QueueLoader;
 
 public class QueueFragment extends Fragment implements MusicStateListener {
 

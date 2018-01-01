@@ -22,12 +22,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.naman14.timber.R;
 import com.naman14.timber.adapters.ArtistSongAdapter;
 import com.naman14.timber.dataloaders.ArtistSongLoader;
-import com.naman14.timber.models.Song;
 import com.naman14.timber.utils.Constants;
 import com.naman14.timber.widgets.DividerItemDecoration;
+import com.naman14.timber.R;
+import com.naman14.timber.models.Song;
 
 import java.util.ArrayList;
 
@@ -58,7 +58,7 @@ public class ArtistMusicFragment extends Fragment {
         View rootView = inflater.inflate(
                 R.layout.fragment_artist_music, container, false);
 
-        songsRecyclerview = (RecyclerView) rootView.findViewById(R.id.recycler_view_songs);
+        songsRecyclerview = rootView.findViewById(R.id.recycler_view_songs);
 
         setUpSongs();
 

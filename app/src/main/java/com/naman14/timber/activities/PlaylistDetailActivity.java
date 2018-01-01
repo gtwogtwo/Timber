@@ -42,20 +42,19 @@ import com.afollestad.appthemeengine.customizers.ATEActivityThemeCustomizer;
 import com.afollestad.appthemeengine.customizers.ATEToolbarCustomizer;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.naman14.timber.R;
-import com.naman14.timber.adapters.SongsListAdapter;
 import com.naman14.timber.dataloaders.LastAddedLoader;
-import com.naman14.timber.dataloaders.PlaylistLoader;
 import com.naman14.timber.dataloaders.PlaylistSongLoader;
 import com.naman14.timber.dataloaders.SongLoader;
 import com.naman14.timber.dataloaders.TopTracksLoader;
 import com.naman14.timber.listeners.SimplelTransitionListener;
-import com.naman14.timber.models.Song;
 import com.naman14.timber.utils.Constants;
-import com.naman14.timber.utils.PreferencesUtility;
 import com.naman14.timber.utils.TimberUtils;
-import com.naman14.timber.widgets.DividerItemDecoration;
 import com.naman14.timber.widgets.DragSortRecycler;
+import com.naman14.timber.R;
+import com.naman14.timber.adapters.SongsListAdapter;
+import com.naman14.timber.dataloaders.PlaylistLoader;
+import com.naman14.timber.models.Song;
+import com.naman14.timber.widgets.DividerItemDecoration;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -109,7 +108,7 @@ public class PlaylistDetailActivity extends BaseActivity implements ATEActivityT
 
         action = getIntent().getAction();
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -120,9 +119,9 @@ public class PlaylistDetailActivity extends BaseActivity implements ATEActivityT
         playlistsMap.put(Constants.NAVIGATE_PLAYLIST_TOPTRACKS, playlistToptracks);
         playlistsMap.put(Constants.NAVIGATE_PLAYLIST_USERCREATED, playlistUsercreated);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
-        blurFrame = (ImageView) findViewById(R.id.blurFrame);
-        playlistname = (TextView) findViewById(R.id.name);
+        recyclerView = findViewById(R.id.recyclerview);
+        blurFrame = findViewById(R.id.blurFrame);
+        playlistname = findViewById(R.id.name);
         foreground = findViewById(R.id.foreground);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

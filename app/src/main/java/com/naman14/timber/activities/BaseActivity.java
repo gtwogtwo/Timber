@@ -22,7 +22,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.media.AudioManager;
-import android.media.session.MediaSessionManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -36,33 +35,30 @@ import android.widget.Toast;
 
 import com.afollestad.appthemeengine.ATE;
 import com.afollestad.appthemeengine.ATEActivity;
+import com.naman14.timber.MusicPlayer;
+import com.naman14.timber.MusicService;
+import com.naman14.timber.cast.WebServer;
+import com.naman14.timber.slidinguppanel.SlidingUpPanelLayout;
+import com.naman14.timber.utils.Helpers;
 import com.google.android.gms.cast.framework.CastButtonFactory;
 import com.google.android.gms.cast.framework.CastContext;
 import com.google.android.gms.cast.framework.CastSession;
 import com.google.android.gms.cast.framework.Session;
 import com.google.android.gms.cast.framework.SessionManager;
 import com.google.android.gms.cast.framework.SessionManagerListener;
-import com.google.android.gms.cast.framework.media.widget.ExpandedControllerActivity;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.naman14.timber.ITimberService;
-import com.naman14.timber.MusicPlayer;
-import com.naman14.timber.MusicService;
 import com.naman14.timber.R;
 import com.naman14.timber.cast.SimpleSessionManagerListener;
-import com.naman14.timber.cast.WebServer;
 import com.naman14.timber.listeners.MusicStateListener;
-import com.naman14.timber.slidinguppanel.SlidingUpPanelLayout;
 import com.naman14.timber.subfragments.QuickControlsFragment;
-import com.naman14.timber.utils.Helpers;
 import com.naman14.timber.utils.NavigationUtils;
 import com.naman14.timber.utils.TimberUtils;
 
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-
-import static com.naman14.timber.MusicPlayer.mService;
 
 public class BaseActivity extends ATEActivity implements ServiceConnection, MusicStateListener {
 
@@ -127,8 +123,8 @@ public class BaseActivity extends ATEActivity implements ServiceConnection, Musi
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
 
         try {
-            playServicesAvailable = GoogleApiAvailability
-                    .getInstance().isGooglePlayServicesAvailable(this) == ConnectionResult.SUCCESS;
+            //playServicesAvailable = GoogleApiAvailability
+            //        .getInstance().isGooglePlayServicesAvailable(this) == ConnectionResult.SUCCESS;
         } catch (Exception ignored) {
 
         }
@@ -185,7 +181,7 @@ public class BaseActivity extends ATEActivity implements ServiceConnection, Musi
 
     @Override
     public void onServiceConnected(final ComponentName name, final IBinder service) {
-        mService = ITimberService.Stub.asInterface(service);
+        MusicPlayer.mService = ITimberService.Stub.asInterface(service);
 
         onMetaChanged();
     }
@@ -198,7 +194,7 @@ public class BaseActivity extends ATEActivity implements ServiceConnection, Musi
 
     @Override
     public void onServiceDisconnected(final ComponentName name) {
-        mService = null;
+        MusicPlayer.mService = null;
     }
 
     @Override

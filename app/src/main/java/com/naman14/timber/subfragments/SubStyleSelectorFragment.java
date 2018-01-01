@@ -30,11 +30,11 @@ import android.widget.TextView;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.naman14.timber.R;
 import com.naman14.timber.activities.DonateActivity;
 import com.naman14.timber.utils.Constants;
 import com.naman14.timber.utils.NavigationUtils;
 import com.naman14.timber.utils.PreferencesUtility;
+import com.naman14.timber.R;
 
 public class SubStyleSelectorFragment extends Fragment {
 
@@ -60,12 +60,12 @@ public class SubStyleSelectorFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_style_selector_pager, container, false);
 
-        TextView styleName = (TextView) rootView.findViewById(R.id.style_name);
+        TextView styleName = rootView.findViewById(R.id.style_name);
         styleName.setText(String.valueOf(getArguments().getInt(ARG_PAGE_NUMBER) + 1));
         preferences = getActivity().getSharedPreferences(Constants.FRAGMENT_ID, Context.MODE_PRIVATE);
 
-        styleImage = (ImageView) rootView.findViewById(R.id.style_image);
-        imgLock = (ImageView) rootView.findViewById(R.id.img_lock);
+        styleImage = rootView.findViewById(R.id.style_image);
+        imgLock = rootView.findViewById(R.id.img_lock);
 
         styleImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,7 +102,7 @@ public class SubStyleSelectorFragment extends Fragment {
                 break;
         }
 
-        currentStyle = (LinearLayout) rootView.findViewById(R.id.currentStyle);
+        currentStyle = rootView.findViewById(R.id.currentStyle);
         foreground = rootView.findViewById(R.id.foreground);
 
         setCurrentStyle();

@@ -24,11 +24,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.naman14.timber.R;
 import com.naman14.timber.models.Album;
 import com.naman14.timber.utils.ImageUtils;
-import com.naman14.timber.utils.NavigationUtils;
 import com.naman14.timber.utils.TimberUtils;
+import com.naman14.timber.R;
+import com.naman14.timber.utils.NavigationUtils;
 
 import java.util.List;
 
@@ -79,10 +79,10 @@ public class ArtistAlbumAdapter extends RecyclerView.Adapter<ArtistAlbumAdapter.
 
         public ItemHolder(View view) {
             super(view);
-            this.rootView = (CardView) view.findViewById(R.id.root_view);
-            this.title = (TextView) view.findViewById(R.id.album_title);
-            this.details = (TextView) view.findViewById(R.id.album_details);
-            this.albumArt = (ImageView) view.findViewById(R.id.album_art);
+            this.rootView = view.findViewById(R.id.root_view);
+            this.title = view.findViewById(R.id.album_title);
+            this.details = view.findViewById(R.id.album_details);
+            this.albumArt = view.findViewById(R.id.album_art);
             view.setOnClickListener(this);
         }
 

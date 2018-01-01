@@ -67,7 +67,7 @@ public final class PreferencesUtility {
     private ConnectivityManager connManager = null;
 
     public PreferencesUtility(final Context context) {
-        this.context = context;
+        PreferencesUtility.context = context;
         mPreferences = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
@@ -118,6 +118,16 @@ public final class PreferencesUtility {
     public void setStartPageIndex(final int index) {
         final SharedPreferences.Editor editor = mPreferences.edit();
         editor.putInt(START_PAGE_INDEX, index);
+        editor.apply();
+    }
+
+    public boolean getOpened() {
+        return mPreferences.getBoolean("opened", false);
+    }
+
+    public void setOpened() {
+        final SharedPreferences.Editor editor = mPreferences.edit();
+        editor.putBoolean("opened", true);
         editor.apply();
     }
 

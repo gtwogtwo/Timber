@@ -28,8 +28,8 @@ import android.util.AttributeSet;
 import android.util.Property;
 import android.view.View;
 
-import com.naman14.timber.R;
 import com.naman14.timber.timely.animation.TimelyEvaluator;
+import com.naman14.timber.R;
 import com.naman14.timber.timely.model.NumberUtils;
 
 public class TimelyView extends View {

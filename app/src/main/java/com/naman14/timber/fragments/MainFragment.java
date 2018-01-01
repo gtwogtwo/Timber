@@ -30,10 +30,10 @@ import android.view.ViewGroup;
 
 import com.afollestad.appthemeengine.ATE;
 import com.afollestad.appthemeengine.Config;
-import com.naman14.timber.R;
 import com.naman14.timber.utils.ATEUtils;
 import com.naman14.timber.utils.Helpers;
 import com.naman14.timber.utils.PreferencesUtility;
+import com.naman14.timber.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +54,7 @@ public class MainFragment extends Fragment {
         View rootView = inflater.inflate(
                 R.layout.fragment_main, container, false);
 
-        Toolbar toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
+        Toolbar toolbar = rootView.findViewById(R.id.toolbar);
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
 
         final ActionBar ab = ((AppCompatActivity) getActivity()).getSupportActionBar();
@@ -62,13 +62,13 @@ public class MainFragment extends Fragment {
         ab.setDisplayHomeAsUpEnabled(true);
 
 
-        viewPager = (ViewPager) rootView.findViewById(R.id.viewpager);
+        viewPager = rootView.findViewById(R.id.viewpager);
         if (viewPager != null) {
             setupViewPager(viewPager);
             viewPager.setOffscreenPageLimit(2);
         }
 
-        TabLayout tabLayout = (TabLayout) rootView.findViewById(R.id.tabs);
+        TabLayout tabLayout = rootView.findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
 
         return rootView;

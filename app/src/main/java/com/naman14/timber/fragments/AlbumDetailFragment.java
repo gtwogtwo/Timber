@@ -42,20 +42,19 @@ import android.widget.TextView;
 
 import com.afollestad.appthemeengine.ATE;
 import com.afollestad.appthemeengine.Config;
-import com.naman14.timber.MusicPlayer;
-import com.naman14.timber.R;
-import com.naman14.timber.activities.MainActivity;
-import com.naman14.timber.adapters.AlbumSongsAdapter;
-import com.naman14.timber.dataloaders.AlbumLoader;
-import com.naman14.timber.dataloaders.AlbumSongLoader;
 import com.naman14.timber.listeners.SimplelTransitionListener;
-import com.naman14.timber.models.Album;
-import com.naman14.timber.models.Song;
-import com.naman14.timber.utils.ATEUtils;
 import com.naman14.timber.utils.Constants;
 import com.naman14.timber.utils.FabAnimationUtils;
 import com.naman14.timber.utils.Helpers;
 import com.naman14.timber.utils.ImageUtils;
+import com.naman14.timber.MusicPlayer;
+import com.naman14.timber.R;
+import com.naman14.timber.adapters.AlbumSongsAdapter;
+import com.naman14.timber.dataloaders.AlbumLoader;
+import com.naman14.timber.dataloaders.AlbumSongLoader;
+import com.naman14.timber.models.Album;
+import com.naman14.timber.models.Song;
+import com.naman14.timber.utils.ATEUtils;
 import com.naman14.timber.utils.NavigationUtils;
 import com.naman14.timber.utils.PreferencesUtility;
 import com.naman14.timber.utils.SortOrder;
@@ -119,21 +118,21 @@ public class AlbumDetailFragment extends Fragment {
         final View rootView = inflater.inflate(
                 R.layout.fragment_album_detail, container, false);
 
-        albumArt = (ImageView) rootView.findViewById(R.id.album_art);
-        artistArt = (ImageView) rootView.findViewById(R.id.artist_art);
-        albumTitle = (TextView) rootView.findViewById(R.id.album_title);
-        albumDetails = (TextView) rootView.findViewById(R.id.album_details);
+        albumArt = rootView.findViewById(R.id.album_art);
+        artistArt = rootView.findViewById(R.id.artist_art);
+        albumTitle = rootView.findViewById(R.id.album_title);
+        albumDetails = rootView.findViewById(R.id.album_details);
 
-        toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
+        toolbar = rootView.findViewById(R.id.toolbar);
 
-        fab = (FloatingActionButton) rootView.findViewById(R.id.fab);
+        fab = rootView.findViewById(R.id.fab);
 
         if (getArguments().getBoolean("transition")) {
             albumArt.setTransitionName(getArguments().getString("transition_name"));
         }
-        recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerview);
-        collapsingToolbarLayout = (CollapsingToolbarLayout) rootView.findViewById(R.id.collapsing_toolbar);
-        appBarLayout = (AppBarLayout) rootView.findViewById(R.id.app_bar);
+        recyclerView = rootView.findViewById(R.id.recyclerview);
+        collapsingToolbarLayout = rootView.findViewById(R.id.collapsing_toolbar);
+        appBarLayout = rootView.findViewById(R.id.app_bar);
         recyclerView.setEnabled(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
