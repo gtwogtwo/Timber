@@ -181,11 +181,11 @@ public class MainActivity extends BaseActivity implements ATEActivityThemeCustom
 
         firstOpen = !PreferencesUtility.getInstance(MainActivity.this).getOpened();
 
-        Log.e(firstOpen + "", "fo value");
-
         if(firstOpen){
             PreferencesUtility.getInstance(MainActivity.this).setOpened();
         }
+
+        Log.e(firstOpen + "", "fo value");
 
         MobileAds.initialize(this, "ca-app-pub-9777911955359820~8649319903");
 
@@ -272,9 +272,8 @@ public class MainActivity extends BaseActivity implements ATEActivityThemeCustom
 
         int currentMin = Calendar.getInstance().getTime().getMinutes();
         adView = findViewById(R.id.adViewMain);
-
-        PreferencesUtility.getInstance(MainActivity.this).setFullUnlocked(false);
         if(currentMin % 20 == 0 && !PreferencesUtility.getInstance(MainActivity.this).fullUnlocked() && !firstOpen) {
+            adView.setVisibility(View.VISIBLE);
             AdRequest adRequest = new AdRequest.Builder().build();//TODO remove test
             adView.loadAd(adRequest);
         }
