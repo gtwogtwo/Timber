@@ -17,7 +17,7 @@
     <application
         android:name=".TimberApp"
         android:allowBackup="false"
-        android:icon="@mipmap/ic_launcher_foreground"
+        android:icon="@mipmap/ic_launcher"
         android:label="Musica"
         android:theme="@style/AppTheme.FullScreen.Light"
         tools:replace="android:allowBackup, android:label">
