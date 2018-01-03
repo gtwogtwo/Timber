@@ -76,7 +76,7 @@
     <string name="now_playing_selector">Wählen Sie einen "Now-Playing"-Screen aus 4 verschiedenen Stilen.</string>
     <string name="personalisation">Personifizierung</string>
     <string name="other">Anderes</string>
-    <string name="timber_about_opensource">Timber ist ein offener Musik-Player entwickelt von Naman Dwivedi.</string>
+    <string name="timber_about_opensource">Airplay ist ein offener Musik-Player entwickelt von Caleb Hall.</string>
     <string name="summary_pause_detach">Wiedergabe pausieren wenn Kopfhörer entfernt werden.</string>
     <string name="pause_detach">Pause beim entfernen</string>
     <string name="albumart_lockscreen">Sperrbildschirm</string>
@@ -103,5 +103,6 @@
 
     <string name="menu_show_lyrics">Songtext anzeigen</string>
     <string name="no_lyrics">Songtext nicht gefunden.</string>
+    <string name="show_your_appreciation_and_support_text">Show your appreciation and support the development of Airplay. Purchasing any of the below product also unlocks additional now playing styles and removes ads.</string>
 
 </resources>

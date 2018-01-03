@@ -76,7 +76,7 @@
     <string name="now_playing_selector">Scegli la schermata di riproduzione tra 4 stili differenti.</string>
     <string name="personalisation">Personalizzazione</string>
     <string name="other">Altro</string>
-    <string name="timber_about_opensource">Timber è un riproduttore musicale open source sviluppato da Naman Dwivedi.</string>
+    <string name="timber_about_opensource">Airplay è un riproduttore musicale open source sviluppato da Caleb Hall.</string>
     <string name="summary_pause_detach">Abilita pausa della riproduzione quando vengono staccate le cuffie</string>
     <string name="pause_detach">Pausa al distacco</string>
     <string name="currently_selected">Attualmente selezionato</string>
@@ -87,4 +87,5 @@
     <string name="count_albums"><xliff:g id="count">%d</xliff:g> album</string>
     <string name="count_artist"><xliff:g id="count">%d</xliff:g> artista</string>
     <string name="count_artists"><xliff:g id="count">%d</xliff:g> artisti</string>
+    <string name="show_your_appreciation_and_support_text">Show your appreciation and support the development of Airplay. Purchasing any of the below product also unlocks additional now playing styles and removes ads.</string>
 </resources>

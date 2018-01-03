@@ -10,8 +10,8 @@ android {
         applicationId 'com.caleb.mmp'
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
-        versionCode 6
-        versionName "1.6.2.6"
+        versionCode 7
+        versionName "1.6.3"
         //renderscript support mode is not supported for 21+ with gradle version 2.0
         renderscriptTargetApi 20
         renderscriptSupportModeEnabled true
@@ -29,10 +29,10 @@ android {
         }
         debug {
             ext.enableCrashlytics = false
-            versionNameSuffix "-debug"
+            versionNameSuffix ""
             minifyEnabled false
-            applicationIdSuffix '.dev'
-            manifestPlaceholders = [appNameSuffix: " Dev"]
+            applicationIdSuffix ''
+            manifestPlaceholders = [appNameSuffix: ""]
 
             resValue "string", "fabric_api_key", "12345"
             resValue "string", "play_billing_license_key", "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAn/Xp9q+6b4bFKvbXILcfEvIwtkKB4I727i/qZB2hcX7PYm51JrBVcHA09AfBOMGhMyTYRLYN88QjA0r/6Dfotclx+iiojgpQF+BRJ86bTbMurAx16LtPn4GgFNDEUlc+fCz+uE3sj7iXjROgrpIcSfyOC3G/f4Ac5WmItvi6B77A+LQefG1WnwrEykgNRtbnVULRWLkWj2f4FDESNDaG7A9pHCd1TRo9YlNy3Sp9F4dDs+pGK9ldI8VP/0sTnJG7oy4sllRIMY+A6P9paSc5sNKDpgJhEfBWKjbbyM6tHp+IKJBZD2TmqAt2fYAeIZfY6eoxcfZ8Vz9EVGWzgCGe3wIDAQAB"

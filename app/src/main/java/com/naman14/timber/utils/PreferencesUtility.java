@@ -131,6 +131,12 @@ public final class PreferencesUtility {
         editor.apply();
     }
 
+    public void setDark() {
+        final SharedPreferences.Editor editor = mPreferences.edit();
+        editor.putBoolean("dark_theme", true);
+        editor.apply();
+    }
+
     public void setLastOpenedAsStartPagePreference(boolean preference) {
         final SharedPreferences.Editor editor = mPreferences.edit();
         editor.putBoolean(START_PAGE_PREFERENCE_LASTOPENED, preference);

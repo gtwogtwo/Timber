@@ -146,6 +146,7 @@ public class SongsListAdapter extends BaseSongAdapter<SongsListAdapter.ItemHolde
                                 TimberUtils.removeFromPlaylist(mContext, arraylist.get(position).id, playlistId);
                                 removeSongAt(position);
                                 notifyItemRemoved(position);
+                                notifyItemRangeChanged(position, getItemCount());
                                 break;
                             case R.id.popup_song_play:
                                 MusicPlayer.playAll(mContext, songIDs, position, -1, TimberUtils.IdType.NA, false);

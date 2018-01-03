@@ -37,6 +37,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.afollestad.appthemeengine.ATE;
+import com.afollestad.appthemeengine.Config;
 import com.afollestad.appthemeengine.customizers.ATEActivityThemeCustomizer;
 import com.anjlab.android.iab.v3.BillingProcessor;
 import com.google.android.gms.ads.AdRequest;
@@ -183,9 +185,9 @@ public class MainActivity extends BaseActivity implements ATEActivityThemeCustom
 
         if(firstOpen){
             PreferencesUtility.getInstance(MainActivity.this).setOpened();
+            PreferencesUtility.getInstance(MainActivity.this).setDark();
+            ATE.config(this, getATEKey()).accentColor(-6543440).primaryColor(-14142061).commit();
         }
-
-        Log.e(firstOpen + "", "fo value");
 
         MobileAds.initialize(this, "ca-app-pub-9777911955359820~8649319903");
 
@@ -272,7 +274,7 @@ public class MainActivity extends BaseActivity implements ATEActivityThemeCustom
 
         int currentMin = Calendar.getInstance().getTime().getMinutes();
         adView = findViewById(R.id.adViewMain);
-        if(currentMin % 20 == 0 && !PreferencesUtility.getInstance(MainActivity.this).fullUnlocked() && !firstOpen) {
+        if(currentMin % 2 == 0 && !PreferencesUtility.getInstance(MainActivity.this).fullUnlocked() && !firstOpen) {
             adView.setVisibility(View.VISIBLE);
             AdRequest adRequest = new AdRequest.Builder().build();//TODO remove test
             adView.loadAd(adRequest);
@@ -286,7 +288,7 @@ public class MainActivity extends BaseActivity implements ATEActivityThemeCustom
     public void onResume(){
         super.onResume();
         int currentMin = Calendar.getInstance().getTime().getMinutes();
-        if(currentMin % 9 == 0 && !PreferencesUtility.getInstance(MainActivity.this).fullUnlocked() && !firstOpen) {
+        if(currentMin % 2 == 0 && !PreferencesUtility.getInstance(MainActivity.this).fullUnlocked() && !firstOpen) {
             adView.setVisibility(View.VISIBLE);
             AdRequest adRequest = new AdRequest.Builder().build();//TODO remove test
             adView.loadAd(adRequest);

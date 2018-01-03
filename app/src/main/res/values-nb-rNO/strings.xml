@@ -78,7 +78,7 @@
     <string name="personalisation">Brukertilpasning</string>
     <string name="other">Annet</string>
     <string name="advanced">Avansert</string>
-    <string name="timber_about_opensource">Timber er en fri programvare-musikkavspiller, utviklet av Naman Dwivedi.</string>
+    <string name="timber_about_opensource">Airplay er en fri programvare-musikkavspiller, utviklet av Caleb Hall.</string>
     <string name="summary_pause_detach">Veksle for pausing av musikkavspilling når hodetelefoner kobles fra</string>
     <string name="pause_detach">Pause ved frakobling</string>
     <string name="summary_xposed_trackselector">Krever Xposed og XMediaNotificationTrackSelector Xposed-modul for å kunne installeres. Dette gir tilgang til avspillingskø fra merknadsmenyen.</string>
@@ -130,5 +130,6 @@
 
     <string name="nothing_found">Ingenting funnet</string>
     <string name="folders">Mapper</string>
+    <string name="show_your_appreciation_and_support_text">Show your appreciation and support the development of Airplay. Purchasing any of the below product also unlocks additional now playing styles and removes ads.</string>
 
 </resources>

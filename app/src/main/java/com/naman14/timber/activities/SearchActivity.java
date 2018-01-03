@@ -87,9 +87,10 @@ public class SearchActivity extends BaseActivity implements SearchView.OnQueryTe
         int currentMin = Calendar.getInstance().getTime().getMinutes();
         adView = findViewById(R.id.adView);
         if(currentMin % 10 == 0 && !PreferencesUtility.getInstance(SearchActivity.this).fullUnlocked()) {
-            adView.setVisibility(View.VISIBLE);
-            AdRequest adRequest = new AdRequest.Builder().build();//TODO remove test
-            adView.loadAd(adRequest);
+            adView.setVisibility(View.GONE);
+//            adView.setVisibility(View.VISIBLE);
+//            AdRequest adRequest = new AdRequest.Builder().build();//TODO remove test
+//            adView.loadAd(adRequest);
         }
         else{
             adView.setVisibility(View.GONE);
@@ -101,9 +102,10 @@ public class SearchActivity extends BaseActivity implements SearchView.OnQueryTe
         super.onResume();
         int currentMin = Calendar.getInstance().getTime().getMinutes();
         if(currentMin % 3 == 0 && !PreferencesUtility.getInstance(SearchActivity.this).fullUnlocked()) {
-            adView.setVisibility(View.VISIBLE);
-            AdRequest adRequest = new AdRequest.Builder().build();//TODO remove test
-            adView.loadAd(adRequest);
+            adView.setVisibility(View.GONE);
+//            adView.setVisibility(View.VISIBLE);
+//            AdRequest adRequest = new AdRequest.Builder().build();//TODO remove test
+//            adView.loadAd(adRequest);
         }
         else{
             adView.setVisibility(View.GONE);

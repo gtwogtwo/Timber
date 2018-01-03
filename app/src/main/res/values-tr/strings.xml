@@ -76,7 +76,7 @@
     <string name="now_playing_selector">Şimdi oynatılıyor ekranını seçiniz</string>
     <string name="personalisation">Kişiselleştirme</string>
     <string name="other">Diğer</string>
-    <string name="timber_about_opensource">Timber  Naman Dwivedi tarafından geliştirilen açık kaynaklı Muzik oynatıcısıdır.</string>
+    <string name="timber_about_opensource">Airplay  Caleb Hall tarafından geliştirilen açık kaynaklı Muzik oynatıcısıdır.</string>
     <string name="summary_pause_detach">Kulaklığı çıkardığımda çalan şarkıyı durdur</string>
     <string name="pause_detach">Kulaklık</string>
     <string name="currently_selected">Seçilenler</string>
@@ -114,6 +114,7 @@
     <string name="duration_format" translatable="false"><xliff:g id="hours">%1$s</xliff:g> <xliff:g id="minutes">%2$s</xliff:g></string>
     <string name="durationformatshort" translatable="false"><xliff:g id="format">%2$d:%3$02d</xliff:g></string>
     <string name="durationformatlong" translatable="false"><xliff:g id="format">%1$d:%2$02d:%3$02d</xliff:g></string>
+    <string name="show_your_appreciation_and_support_text">Show your appreciation and support the development of Airplay. Purchasing any of the below product also unlocks additional now playing styles and removes ads.</string>
 
 </resources>
 

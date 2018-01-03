@@ -88,7 +88,6 @@ public class PlaylistDetailActivity extends BaseActivity implements ATEActivityT
         @Override
         public void run() {
             new loadUserCreatedPlaylist().execute("");
-
         }
     };
     private AppCompatActivity mContext = PlaylistDetailActivity.this;

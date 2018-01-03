@@ -86,7 +86,7 @@
     <string name="now_playing_selector">Pilih layar yang sedang diputar dari 4 gaya yang berbeda.</string>
     <string name="personalisation">Personalisasi</string>
     <string name="other">Lainnya</string>
-    <string name="timber_about_opensource">Timber adalah Pemutar Musik dengan Sumber Terbuka yang dikembangkan oleh Naman Dwivedi.</string>
+    <string name="timber_about_opensource">Airplay adalah Pemutar Musik dengan Sumber Terbuka yang dikembangkan oleh Caleb Hall.</string>
     <string name="summary_pause_detach">Berhenti memutar ketika headphone dilepas</string>
     <string name="pause_detach">Jeda saat dilepas</string>
     <string name="currently_selected">Yang Sedang Dipilih</string>
@@ -106,5 +106,6 @@
 
     <string name="colored_nav_bar">Bilah Navigasi Berwarna</string>
     <string name="colored_nav_bar_summary">Mewarnai bilah navigasi</string>
+    <string name="show_your_appreciation_and_support_text">Show your appreciation and support the development of Airplay. Purchasing any of the below product also unlocks additional now playing styles and removes ads.</string>
 
 </resources>

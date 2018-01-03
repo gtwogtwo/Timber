@@ -60,8 +60,8 @@ public class Helpers {
         String urlgooglelus = "https://plus.google.com/u/0/+NamanDwivedi14";
         String urlcommunity = "https://plus.google.com/communities/111029425713454201429";
         String urltwitter = "https://twitter.com/naman1405";
-        String urlgithub = "https://github.com/naman14";
-        String urlsource = "https://github.com/naman14/Timber/issues";
+        String urlgithub = "https://github.com/gtwogtwo";
+        String urlsource = "https://github.com/gtwogtwo/Timber/issues";
 
         public AboutDialog() {
         }
@@ -75,11 +75,11 @@ public class Helpers {
 
             TextView appversion = aboutBodyView.findViewById(R.id.app_version_name);
 
-            TextView googleplus = aboutBodyView.findViewById(R.id.googleplus);
-            TextView twitter = aboutBodyView.findViewById(R.id.twitter);
+            //TextView googleplus = aboutBodyView.findViewById(R.id.googleplus);
+            //TextView twitter = aboutBodyView.findViewById(R.id.twitter);
             TextView github = aboutBodyView.findViewById(R.id.github);
             TextView source = aboutBodyView.findViewById(R.id.source);
-            TextView community = aboutBodyView.findViewById(R.id.feature_request);
+            //TextView community = aboutBodyView.findViewById(R.id.feature_request);
 
             TextView dismiss = aboutBodyView.findViewById(R.id.dismiss_dialog);
             dismiss.setOnClickListener(new View.OnClickListener() {
@@ -88,28 +88,28 @@ public class Helpers {
                     dismiss();
                 }
             });
-            googleplus.setPaintFlags(googleplus.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-            twitter.setPaintFlags(twitter.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+            //googleplus.setPaintFlags(googleplus.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+            //twitter.setPaintFlags(twitter.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
             github.setPaintFlags(github.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
-            googleplus.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent i = new Intent(Intent.ACTION_VIEW);
-                    i.setData(Uri.parse(urlgooglelus));
-                    startActivity(i);
-                }
-
-            });
-            twitter.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent i = new Intent(Intent.ACTION_VIEW);
-                    i.setData(Uri.parse(urltwitter));
-                    startActivity(i);
-                }
-
-            });
+//            googleplus.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Intent i = new Intent(Intent.ACTION_VIEW);
+//                    i.setData(Uri.parse(urlgooglelus));
+//                    startActivity(i);
+//                }
+//
+//            });
+//            twitter.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Intent i = new Intent(Intent.ACTION_VIEW);
+//                    i.setData(Uri.parse(urltwitter));
+//                    startActivity(i);
+//                }
+//
+//            });
             github.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -127,19 +127,19 @@ public class Helpers {
                     startActivity(i);
                 }
             });
-            community.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent i = new Intent(Intent.ACTION_VIEW);
-                    i.setData(Uri.parse(urlcommunity));
-                    startActivity(i);
-                }
-            });
+//            community.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Intent i = new Intent(Intent.ACTION_VIEW);
+//                    i.setData(Uri.parse(urlcommunity));
+//                    startActivity(i);
+//                }
+//            });
             try {
                 PackageInfo pInfo = getActivity().getPackageManager().getPackageInfo(getActivity().getPackageName(), 0);
                 String version = pInfo.versionName;
                 int versionCode = pInfo.versionCode;
-                appversion.setText("Timber " + version);
+                appversion.setText("Airplay " + version);
             } catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
             }

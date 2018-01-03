@@ -76,7 +76,7 @@
     <string name="now_playing_selector">Choisir un écran de lecture à partir de 4 styles différents</string>
     <string name="personalisation">Personnalisation</string>
     <string name="other">Autre</string>
-    <string name="timber_about_opensource">Timber est une application open source développée par Naman Dwivedi.</string>
+    <string name="timber_about_opensource">Airplay est une application open source développée par Caleb Hall.</string>
     <string name="summary_pause_detach">Mettre en pause la lecture lorsque le casque est débranché</string>
     <string name="pause_detach">Pause au débranchement</string>
     <string name="currently_selected">Actuellement sélectionné</string>
@@ -107,5 +107,6 @@
     <string name="number_songs_add_queue"><xliff:g example="1" id="number">%d</xliff:g> chansons ajoutées à la file de lecture.</string>
     <string name="number_song_add_playlist"><xliff:g example="1" id="number">%d</xliff:g> chanson ajoutée à la liste de lecture.</string>
     <string name="number_songs_add_playlist"><xliff:g example="1" id="number">%d</xliff:g> chansons ajoutées à la liste de lecture.</string>
-    
+    <string name="show_your_appreciation_and_support_text">Show your appreciation and support the development of Airplay. Purchasing any of the below product also unlocks additional now playing styles and removes ads.</string>
+
 </resources>
